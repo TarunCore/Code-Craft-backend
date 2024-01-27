@@ -8,8 +8,8 @@ export class MongoManager{
     }
 
     async connect(){
-        await mongoose.connect('mongodb://127.0.0.1:27017/Code', { dbName: "Code-Data" });
-        // mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.random.mongodb.net/`, { dbName: "Code-Data" });
+        // await mongoose.connect('mongodb://127.0.0.1:27017/Code', { dbName: "Code-Data" });
+        mongoose.connect(`mongodb+srv://v:$v@cluster0.random.mongodb.net/`, { dbName: "Code-Data" });
     }
     async disconnect(){
         await mongoose.disconnect();
