@@ -12,7 +12,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.get("/",(req, res)=>{
-    res.send("Server running")
+    res.send("Server running at"+process.env.PORT)
 })
 app.use("/",appRouter)
 const httpServer = createServer(app);
@@ -25,12 +25,12 @@ sockserver.on('connection', ws => {
         // console.log('websocket error')
     }
 })
-export const iomanage = new IoManager(httpServer2);
+export const iomanage = new IoManager(httpServer);
 export const mongoManager = new MongoManager();
 httpServer.listen(PORT, ()=>{
     mongoManager.connect().catch(err => console.log(err));
     // console.log("http://localhost:1234")
 })
-httpServer2.listen(PORT_SIO, ()=>{
-    // console.log("http://localhost:3000")
-})
+// httpServer2.listen(PORT_SIO, ()=>{
+//     // console.log("http://localhost:3000")
+// })
