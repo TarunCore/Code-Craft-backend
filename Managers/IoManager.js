@@ -12,6 +12,8 @@ export class IoManager{
             }
         });
         this.io.on("connection",(socket)=>{
+            console.log(socket.id);
+            
             socket.on("file_add", (roomId, filename)=>{
                 this.io.emit("file_add", roomId, filename)
             })
