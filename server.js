@@ -17,7 +17,10 @@ app.use(cors(
       credentials: true
     }
   ))
-
+  app.use((req, res, next) => {
+    console.log('Incoming Request:', req.method, req.url);
+    next();
+});
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
