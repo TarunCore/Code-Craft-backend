@@ -5,8 +5,8 @@ import { WebSocketServer } from 'ws';
 import { IoManager } from './Managers/IoManager.js';
 import { MongoManager } from './Managers/MongoManager.js';
 import { appRouter } from './user/user.js';
-const PORT = process.env.PORT ||1234;
-const PORT_SIO = process.env.PORT2 ||3000;
+const PORT = process.env.PORT ||3000;
+const PORT_SIO = process.env.PORT2 ||3001;
 
 const app = express()
 app.use(cors())
