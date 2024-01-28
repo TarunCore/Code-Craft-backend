@@ -6,7 +6,7 @@ import { IoManager } from './Managers/IoManager.js';
 import { MongoManager } from './Managers/MongoManager.js';
 import { appRouter } from './user/user.js';
 const PORT = process.env.PORT ||3000;
-const PORT_SIO = process.env.PORT2 ||3001;
+const PORT_SIO = 3001;
 
 const app = express()
 app.use(cors(
@@ -42,12 +42,12 @@ sockserver.on('connection', ws => {
         // console.log('websocket error')
     }
 })
-export const iomanage = new IoManager(httpServer);
+export const iomanage = new IoManager(httpServer2);
 export const mongoManager = new MongoManager();
 httpServer.listen(PORT, ()=>{
     mongoManager.connect().catch(err => console.log(err));
     // console.log("http://localhost:1234")
 })
-// httpServer2.listen(PORT_SIO, ()=>{
-//     // console.log("http://localhost:3000")
-// })
+httpServer2.listen(PORT_SIO, ()=>{
+    // console.log("http://localhost:3000")
+})
