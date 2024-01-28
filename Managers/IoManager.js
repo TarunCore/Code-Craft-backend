@@ -8,7 +8,7 @@ export class IoManager{
         this.roomppl={};
         this.io=new Server(httpServer,{
             cors:{
-                origin:"*"
+                origin:"http://localhost:5173"
             }
         });
         this.io.on("connection",(socket)=>{

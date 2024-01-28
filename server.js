@@ -9,7 +9,14 @@ const PORT = process.env.PORT ||3000;
 const PORT_SIO = process.env.PORT2 ||3001;
 
 const app = express()
-app.use(cors())
+app.use(cors(
+    {
+      origin: "*",
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+      allowedHeaders: "Content-Type",
+      credentials: true
+    }
+  ))
 app.use(express.json())
 app.get("/",(req, res)=>{
     res.send("Server running at"+process.env.PORT)
