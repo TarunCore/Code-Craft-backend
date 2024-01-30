@@ -33,7 +33,7 @@ sockserver.on('connection', (ws, req) => {
 })
 export const iomanage = new IoManager(httpServer);
 export const mongoManager = new MongoManager();
-httpServer.listen(process.env.PORT, ()=>{
+httpServer.listen(3000, ()=>{
     mongoManager.disconnect();
     mongoManager.connect().catch(err => console.log(err));
     console.log("http://localhost:3000")
